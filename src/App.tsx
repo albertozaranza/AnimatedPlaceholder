@@ -1,30 +1,28 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
+
 import TextInput from './components/TextInput';
 
 const App: React.FC = () => {
-  const { container, title } = styles;
-
   return (
-    <View style={container}>
-      <Text style={title}>Animated Placeholder</Text>
+    <StyledContainer>
+      <StyledTitle>Animated Placeholder</StyledTitle>
       <TextInput placeholder="E-mail" />
       <TextInput placeholder="Password" />
-    </View>
+    </StyledContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    marginBottom: 48,
-    fontSize: 36,
-    fontWeight: 'bold',
-  },
-});
+const StyledContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledTitle = styled.Text`
+  margin-bottom: 48px;
+  font-size: 36px;
+  font-weight: bold;
+`;
 
 export default App;
