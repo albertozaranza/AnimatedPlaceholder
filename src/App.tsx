@@ -9,6 +9,7 @@ const App: React.FC = () => {
     <View style={container}>
       <Text style={title}>Animated Placeholder</Text>
       <TextInput placeholder="E-mail" />
+      <TextInput placeholder="Password" />
     </View>
   );
 };
