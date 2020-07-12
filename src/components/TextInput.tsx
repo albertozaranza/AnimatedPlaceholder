@@ -6,33 +6,40 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const TextInput: React.FC = () => {
-  const { container, label, input } = styles;
+import { TextInput as TextInputProps } from '../types';
+
+const TextInput: React.FC<TextInputProps> = ({
+  placeholder,
+  color = '#ccc',
+}: TextInputProps) => {
+  const { styledContainer, styledLabel, styledInput } = styles;
+
+  const coloredInput = { ...styledInput, borderColor: color };
 
   return (
-    <View style={container}>
-      <Text style={label}>Label</Text>
-      <NativeTextInput style={input} />
+    <View style={styledContainer}>
+      <Text style={styledLabel}>{placeholder}</Text>
+      <NativeTextInput style={coloredInput} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  styledContainer: {
     width: '100%',
     justifyContent: 'center',
     marginVertical: 16,
     paddingHorizontal: 16,
     position: 'relative',
   },
-  label: {
+  styledLabel: {
     fontSize: 16,
     marginBottom: 8,
     position: 'absolute',
     left: 24,
     bottom: 6,
   },
-  input: {
+  styledInput: {
     width: '100%',
     paddingHorizontal: 8,
     borderColor: '#ccc',
